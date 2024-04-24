@@ -3,6 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Department;
+use App\Models\Admin\Emp_Salary;
+use App\Models\Admin\Employee;
+use App\Models\Admin\Position;
+use App\Models\Admin\Room;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class StatisticalController extends Controller
@@ -12,7 +18,23 @@ class StatisticalController extends Controller
      */
     public function index()
     {
-        return view('admin.modules.Statistical');
+        $currentDate = Carbon::now();
+
+       
+        $dateToCompare = $currentDate->copy()->day(5);
+
+        $countemp = Employee::count();
+        $countdep = Department::count();
+        $countroom = Room::count();
+        $countpos = Position::count();
+        $empsa_date = Emp_Salary::where("created_at", $dateToCompare)->first();
+        return view('admin.modules.Statistical',[
+            'countemp' => $countemp,
+            'countdep' => $countdep,
+            'countroom' => $countroom,
+            'countpos'=> $countpos,
+            'empsa_date' => $empsa_date
+        ]);
     }
 
     /**

@@ -22,14 +22,14 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->unsignedBigInteger('supervisor_id')->nullable();
-            $table->unsignedBigInteger('department_id')->nullable();
+            $table->unsignedBigInteger('position_id')->nullable();
             $table->unsignedBigInteger('salary_level')->nullable();
-            $table->unsignedBigInteger('level_id')->nullable();
+          
 
             $table->foreign('supervisor_id')->references('id')->on('employees');
-            $table->foreign('department_id')->references('id')->on('departments');
+            $table->foreign('position_id')->references('id')->on('positions');
             $table->foreign('salary_level')->references('id')->on('salaries');
-            $table->foreign('level_id')->references('id')->on('levels');
+            
 
             $table->timestamps();
         });

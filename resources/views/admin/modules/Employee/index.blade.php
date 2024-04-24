@@ -67,190 +67,70 @@
                 <tr>
                     <th>ID</th>
                     <th>Fullname</th>
-                    <th>Birthday</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Create At</th>
+                    <th>Gender</th>
+                   
+                    <th>Position</th>
+                    <th>Department</th>
+                    <th>Show More</th>
                     <th>Update</th>
                     <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>John Doe</td>
-                    <td>1990-05-15</td>
-                    <td>john.doe@example.com</td>
-                    <td>1234567890</td>
-                    <td>123 Main St</td>
-                    <td>0987654321</td>
-                    <td>456 Oak Ave</td>
-                    <td>2024-03-15 08:00:00</td>
-                    <td><a href="#"><span class="badge badge-success">Update</span></a></td>
-                    <td><a href="#"><span class="badge badge-danger">Delete</span></a></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jane Smith</td>
-                    <td>1985-10-20</td>
-                    <td>jane.smith@example.com</td>
-                    <td>0987654321</td>
-                    <td>456 Oak Ave</td>
-                    <td>1234567890</td>
-                    <td>123 Main St</td>
-                    <td>2024-03-14 09:30:00</td>
-                    <td><a href="#"><span class="badge badge-success">Update</span></a></td>
-                    <td><a href="#"><span class="badge badge-danger">Delete</span></a></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Michael Johnson</td>
-                    <td>1982-08-10</td>
-                    <td>michael.johnson@example.com</td>
-                    <td>9876543210</td>
-                    <td>789 Maple Rd</td>
-                    <td>1234567890</td>
-                    <td>123 Main St</td>
-                    <td>2024-03-13 11:45:00</td>
-                    <td><a href="#"><span class="badge badge-success">Update</span></a></td>
-                    <td><a href="#"><span class="badge badge-danger">Delete</span></a></td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Emily Brown</td>
-                    <td>1995-04-25</td>
-                    <td>emily.brown@example.com</td>
-                    <td>0123456789</td>
-                    <td>789 Maple Rd</td>
-                    <td>0987654321</td>
-                    <td>456 Oak Ave</td>
-                    <td>2024-03-12 14:20:00</td>
-                    <td><a href="#"><span class="badge badge-success">Update</span></a></td>
-                    <td><a href="#"><span class="badge badge-danger">Delete</span></a></td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>William Davis</td>
-                    <td>1988-12-30</td>
-                    <td>william.davis@example.com</td>
-                    <td>0123456789</td>
-                    <td>456 Oak Ave</td>
-                    <td>1234567890</td>
-                    <td>123 Main St</td>
-                    <td>2024-03-11 16:50:00</td>
-                    <td><a href="#"><span class="badge badge-success">Update</span></a></td>
-                    <td><a href="#"><span class="badge badge-danger">Delete</span></a></td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Olivia Wilson</td>
-                    <td>1993-07-05</td>
-                    <td>olivia.wilson@example.com</td>
-                    <td>9876543210</td>
-                    <td>123 Main St</td>
-                    <td>0987654321</td>
-                    <td>456 Oak Ave</td>
-                    <td>2024-03-10 18:15:00</td>
-                    <td><a href="#"><span class="badge badge-success">Update</span></a></td>
-                    <td><a href="#"><span class="badge badge-danger">Delete</span></a></td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Ethan Martinez</td>
-                    <td>1986-09-18</td>
-                    <td>ethan.martinez@example.com</td>
-                    <td>1234567890</td>
-                    <td>789 Maple Rd</td>
-                    <td>9876543210</td>
-                    <td>123 Main St</td>
-                    <td>2024-03-09 20:40:00</td>
-                    <td><a href="#"><span class="badge badge-success">Update</span></a></td>
-                    <td><a href="#"><span class="badge badge-danger">Delete</span></a></td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>Ava Garcia</td>
-                    <td>1991-02-14</td>
-                    <td>ava.garcia@example.com</td>
-                    <td>0123456789</td>
-                    <td>789 Maple Rd</td>
-                    <td>1234567890</td>
-                    <td>123 Main St</td>
-                    <td>2024-03-08 22:05:00</td>
-                    <td><a href="#"><span class="badge badge-success">Update</span></a></td>
-                    <td><a href="#"><span class="badge badge-danger">Delete</span></a></td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>James Rodriguez</td>
-                    <td>1987-06-23</td>
-                    <td>james.rodriguez@example.com</td>
-                    <td>9876543210</td>
-                    <td>456 Oak Ave</td>
-                    <td>0987654321</td>
-                    <td>456 Oak Ave</td>
-                    <td>2024-03-07 00:30:00</td>
-                    <td><a href="#"><span class="badge badge-success">Update</span></a></td>
-                    <td><a href="#"><span class="badge badge-danger">Delete</span></a></td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>Sophia Hernandez</td>
-                    <td>1994-11-28</td>
-                    <td>sophia.hernandez@example.com</td>
-                    <td>1234567890</td>
-                    <td>789 Maple Rd</td>
-                    <td>9876543210</td>
-                    <td>123 Main St</td>
-                    <td>2024-03-06 02:55:00</td>
-                    <td><a href="#"><span class="badge badge-success">Update</span></a></td>
-                    <td><a href="#"><span class="badge badge-danger">Delete</span></a></td>
-                </tr>
-                <tr>
-                    <td>11</td>
-                    <td>Logan Adams</td>
-                    <td>1999-08-08</td>
-                    <td>logan.adams@example.com</td>
-                    <td>0123456789</td>
-                    <td>123 Main St</td>
-                    <td>1234567890</td>
-                    <td>123 Main St</td>
-                    <td>2024-03-05 05:20:00</td>
-                    <td><a href="#"><span class="badge badge-success">Update</span></a></td>
-                    <td><a href="#"><span class="badge badge-danger">Delete</span></a></td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>Chloe Lee</td>
-                    <td>1996-12-12</td>
-                    <td>chloe.lee@example.com</td>
-                    <td>9876543210</td>
-                    <td>456 Oak Ave</td>
-                    <td>0987654321</td>
-                    <td>456 Oak Ave</td>
-                    <td>2024-03-04 06:45:00</td>
-                    <td><a href="#"><span class="badge badge-success">Update</span></a></td>
-                    <td><a href="#"><span class="badge badge-danger">Delete</span></a></td>
-                </tr>
-
+                @foreach ($emps as $emp )
+                    <tr>
+                        <td>
+                            {{$loop->iteration}}
+                        </td>
+                        <td>
+                            {{$emp->name}}
+                        </td>
+                        <td>
+                            {{$emp->email}}
+                        </td>
+                        <td>
+                            {{$emp->phone}}
+                        </td>
+                        <td>
+                            {{$emp->gender}}
+                        </td>
+                       
+                        <td>
+                            {{$emp->position->name}}
+                        </td>
+                        <td>
+                            @php
+                                $dep = DB::table('departments')->find($emp->position->department_id);
+                            @endphp
+                            {{$dep -> name}}
+                        </td>
+                        <td>
+                        <a href="{{route('admin.employee.show',['id'=>$emp->id])}}">Show</a>
+                        </td>
+                        <td>
+                            <a href="{{route('admin.employee.edit',['id'=>$emp->id])}}" class="btn btn-success"> <i class="far fa-edit"></i> Update</a>
+                        </td>
+                        <td>
+                            <a onclick="return confirmDelete()" href="{{route('admin.employee.destroy',['id'=> $emp->id])}}" class="btn btn-danger"><i class="far fa-trash-alt"></i> Delete</a>
+                        </td>
+                        </tr>
+                @endforeach
             </tbody>
+                
             <tfoot>
-                <tr>
                     <th>ID</th>
                     <th>Fullname</th>
-                    <th>Birthday</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Create At</th>
+                    <th>Gender</th>
+                   
+                    <th>Position</th>
+                    <th>Department</th>
+                    <th>Show More</th>
                     <th>Update</th>
                     <th>Delete</th>
-                </tr>
             </tfoot>
         </table>
     </div>

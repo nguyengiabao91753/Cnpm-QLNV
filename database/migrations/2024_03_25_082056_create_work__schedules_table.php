@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('emp_id');
             $table->unsignedBigInteger('shift_id');
             $table->unsignedBigInteger('room_id');
+            $table->string('date');
             $table->timestamps();
             $table->foreign('emp_id')->references('id')->on('employees');
             $table->foreign('shift_id')->references('id')->on('shifts');

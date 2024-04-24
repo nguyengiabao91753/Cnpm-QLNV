@@ -14,13 +14,13 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('administrator/dist/css/adminlte.min.css') }}">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="height: 85vh;">
 <div class="login-box">
   <div class="login-logo">
     <a href="">Login Page</a>
   </div>
   <!-- /.login-logo -->
-  <div class="card">
+  <div class="card" style="padding-top: 0px;">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 

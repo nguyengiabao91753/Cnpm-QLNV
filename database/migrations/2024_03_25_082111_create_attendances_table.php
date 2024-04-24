@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('work_id');
             $table->tinyInteger('present')->nullable()->default(null);
-            $table->dateTime('clock-in')->nullable()->default(null);
-            $table->dateTime('clock-out')->nullable()->default(null);
+            $table->tinyInteger('status')->nullable(); //0:vang-1:lam day du-2:lam nua ngay (di tre/ve som)-3:tang ca
+            $table->dateTime('clock_in')->nullable()->default(null);
+            $table->dateTime('clock_out')->nullable()->default(null);
             $table->boolean('leave_request')->default(false); 
             $table->boolean('leave_approved')->nullable()->default(null);
             $table->text('description')->nullable();

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('emp__salaries', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('emp_id');
+            $table->decimal('total',10,2);
             $table->integer('base');
             $table->decimal('factor',10,2);
             $table->decimal('allowance_factor',10,2);

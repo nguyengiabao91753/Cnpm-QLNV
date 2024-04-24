@@ -79,7 +79,7 @@
                     </a>
                     </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @yield('emp-acc')">
+                    <a href="{{route('admin.account.index')}}" class="nav-link @yield('emp-acc')">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Account</p>
                     </a>
@@ -93,7 +93,7 @@
             </ul>
         </li>
 
-        <li class="nav-item @yield('product')">
+        <li class="nav-item @yield('sch')">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-box"></i>
                 <p>
@@ -103,13 +103,13 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="" class="nav-link @yield('product-create')">
+                    <a href="{{route('admin.schedule.create')}}" class="nav-link @yield('sch-create')">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Create</p>
                     </a>
                     </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @yield('product-list')">
+                    <a href="{{route('admin.schedule.index')}}" class="nav-link @yield('sch-list')">
                         <i class="far fa-circle nav-icon"></i>
                         <p>List</p>
                     </a>
@@ -117,47 +117,23 @@
             </ul>
         </li>
 
-        <li class="nav-item @yield('user')">
+        <li class="nav-item @yield('att')">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
-                User
+                Attendance
                 <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="" class="nav-link @yield('user-create')">
+                    <a href="{{route('admin.attendance.request')}}" class="nav-link @yield('att-request')">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Create</p>
+                        <p>Leave Request</p>
                     </a>
                     </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link @yield('user-list')">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>List</p>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="nav-item @yield('cus')">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>
-                Customer
-                <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="" class="nav-link @yield('cus-create')">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Create</p>
-                    </a>
-                    </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link @yield('cus-list')">
+                    <a href="{{route('admin.attendance.index')}}" class="nav-link @yield('att-list')">
                         <i class="far fa-circle nav-icon"></i>
                         <p>List</p>
                     </a>

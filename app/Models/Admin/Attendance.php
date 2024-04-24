@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Admin;
 
+use App\Models\Admin\Work_Schedule;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,4 +23,9 @@ class Attendance extends Model
     * @var array
     */
    protected $guarded = [];
+
+
+   public function work(){
+    return $this->belongsTo(Work_Schedule::class,'work_id');
+   }
 }

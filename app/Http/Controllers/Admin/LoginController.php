@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Account;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -12,7 +15,38 @@ class LoginController extends Controller
      */
     public function index()
     {
+        if (Auth::guard('admin')->check()) {
+            return redirect()->route('admin./');
+        }
+
         return view('auth.login');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+
+        $check = Account::where('email', $request->email)->first(); // Fix typo here 'enail' to 'email'
+        if (!$check || !Hash::check($request->password, $check->password)) {
+            return redirect()->back()->with('error', 'Invalid user or password');
+        }
+
+        if ($check->level_id >= 3) {
+            return redirect()->back()->with('error', 'You don\'t have permission to access this');
+        }
+
+        if (Auth::guard('admin')->attempt($credentials)) {
+            // if(Auth::user()->level_id >= 3){
+            //     return redirect()->back()->with('error','You don\'t have any permission this access');
+            // }
+            return redirect()->route('admin./');
+        }
+
+        return redirect()->back()->with('error', 'Invalid user or password');
+        //return redirect()->route('profile');
     }
 
     /**

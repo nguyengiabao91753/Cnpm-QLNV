@@ -1,8 +1,8 @@
 @extends('client.client')
 
-@section('module', 'Employee')
+@section('module', 'Schedule')
 @section('action', 'Information')
-@section('profile', 'menu-open')
+@section('sch', 'menu-open')
 @push('css')
 <link rel="stylesheet" href="{{ asset('administrator/plugins/fullcalendar/main.css')}}">
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">

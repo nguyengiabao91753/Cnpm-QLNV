@@ -77,6 +77,13 @@
             </thead>
             <tbody>
                 @foreach ($schedules as $schedule )
+                @php
+
+                
+
+                $isFuture = \Illuminate\Support\Carbon::parse($schedule->date)->isFuture();
+                @endphp
+
                 <tr>
                     <td>
                         {{$loop->iteration}}
@@ -96,13 +103,18 @@
                     <td>
                         {{$schedule->date}}
                     </td>
-
+                    @if ($isFuture)
                     <td>
                         <a href="{{route('admin.schedule.edit',['id'=>$schedule->id])}}" class="btn btn-success"> <i class="far fa-edit"></i> Update</a>
                     </td>
                     <td>
                         <a onclick="return confirmDelete()" href="{{route('admin.schedule.destroy',['id'=> $schedule->id])}}" class="btn btn-danger"><i class="far fa-trash-alt"></i> Delete</a>
                     </td>
+                    @else
+                    <td></td>
+                    <td></td>
+                    @endif
+
                 </tr>
                 @endforeach
             </tbody>

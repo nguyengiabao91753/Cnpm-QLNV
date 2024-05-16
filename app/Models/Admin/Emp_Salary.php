@@ -22,4 +22,8 @@ class Emp_Salary extends Model
     * @var array
     */
    protected $guarded = [];
+
+   public function employee(){
+    return $this->belongsTo(Employee::class,'emp_id');
+   }
 }

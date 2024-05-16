@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Attendance;
 use App\Models\Admin\Department;
 use App\Models\Admin\Emp_Salary;
 use App\Models\Admin\Employee;
 use App\Models\Admin\Position;
 use App\Models\Admin\Room;
+use App\Models\Admin\Work_Schedule;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -18,25 +20,49 @@ class StatisticalController extends Controller
      */
     public function index()
     {
-        $currentDate = Carbon::now();
+        $currentDate = Carbon::now()->startOfMonth();
+        $date = Carbon::create(2024, 4, 25);
+        $currentDate = Carbon::today();
 
+        
+        $atts = Attendance::whereDate('created_at', $currentDate)->get();
        
-        $dateToCompare = $currentDate->copy()->day(5);
-
+        $dateToCompare = $currentDate->copy()->day(16);
+        $empsa_date = Emp_Salary::whereDate("created_at", $dateToCompare)->first();
+        $deps = Department::all();
         $countemp = Employee::count();
         $countdep = Department::count();
         $countroom = Room::count();
         $countpos = Position::count();
-        $empsa_date = Emp_Salary::where("created_at", $dateToCompare)->first();
         return view('admin.modules.Statistical',[
             'countemp' => $countemp,
             'countdep' => $countdep,
             'countroom' => $countroom,
             'countpos'=> $countpos,
-            'empsa_date' => $empsa_date
+            'empsa_date' => $empsa_date,
+            'atts' => $atts,
+            'deps' => $deps
         ]);
     }
 
+    public function getattbydep(){
+         $value = $_GET['depId'];
+        // $atts['data'] = Attendance::join('work__schedules', 'attendances.work_id', '=', 'work__schedules.id')
+        // ->join('employees', 'work__schedules.emp_id', '=', 'employees.id')
+        // ->join('positions', 'employees.position_id', '=', 'positions.id')
+        // ->join('departments', 'positions.department_id', '=', 'departments.id')
+        // ->where('departments.id', $value)
+        // ->get();
+        // return response()->json($atts);
+        // $dep = Department::find($value);
+        $pos = Position::where('department_id', $value)->get()->pluck('id');
+        $emps = Employee::with('position')->whereIn('position_id', $pos)->get()->pluck('id');
+        $works = Work_Schedule::with('room','shift','employee')->whereIn('emp_id', $emps)->get()->pluck('id');
+        $atts['data'] = Attendance::with('work')->whereIn('work_id', $works)->get();
+
+    return response()->json($atts);
+
+    }
     /**
      * Show the form for creating a new resource.
      */

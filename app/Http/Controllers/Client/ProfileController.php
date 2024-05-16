@@ -11,19 +11,19 @@ use Illuminate\Support\Facades\Auth;
 class ProfileController extends Controller
 {
     public function getemp(){
-        $emp = Employee::find(Auth::user()->id);
+        $emp = Employee::find(Auth::guard('client')->id());
         $sal_months = Emp_Salary::selectRaw('DISTINCT MONTH(created_at) AS month')
-        ->where('emp_id',Auth::user()->id )
-        ->orderBy('month', 'asc')
+        ->where('emp_id',Auth::guard('client')->id() )
+        ->orderBy('month', 'desc')
         ->get();
         $years = Emp_Salary::selectRaw('DISTINCT YEAR(created_at) AS year')
-        ->where('emp_id', Auth::user()->id)
+        ->where('emp_id', Auth::guard('client')->id())
         ->orderBy('year', 'desc') // Sắp xếp theo năm từ cao đến thấp
         ->get();
         return view('client.modules.Profile',[
             'emp'=>$emp,
-            'months' => $sal_months,
-            'years' => $years
+            'sal_months' => $sal_months,
+            'sal_years' => $years
 
         ]);
     }

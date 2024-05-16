@@ -145,8 +145,10 @@
                     <td>{{$absatt ->work->date}}</td>
                     <td>@if($absatt->leave_approved == 1)
                         <p class="badge badge-success">Allow</p>
-                        @else
+                        @elseif ($absatt->leave_approved == 0)
                         <p class="badge badge-danger">Deny</p>
+                        @else
+                        <p class="badge badge-info">Waiting for response</p>
                         @endif
                     </td>
                     

@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Auth;
 class ScheduleController extends Controller
 {
     public function index(){
-         $shedule = Work_Schedule::with('employee','room','shift')->get();
+         $shedule = Work_Schedule::with('employee','room','shift')->where('emp_id', Auth::guard('client')->id())->get();
          $atts = Attendance::with('work')->get();
-         $emp = Employee::find(Auth::user()->id);
+         $emp = Employee::find(Auth::guard('client')->id());
         return view('client.modules.Schedule',[
             'schedules' => $shedule,
             'atts' => $atts,

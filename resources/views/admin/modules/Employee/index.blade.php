@@ -113,7 +113,10 @@
                             <a href="{{route('admin.employee.edit',['id'=>$emp->id])}}" class="btn btn-success"> <i class="far fa-edit"></i> Update</a>
                         </td>
                         <td>
+                            @if (Auth::guard('admin')->id() != $emp->id)
+                                
                             <a onclick="return confirmDelete()" href="{{route('admin.employee.destroy',['id'=> $emp->id])}}" class="btn btn-danger"><i class="far fa-trash-alt"></i> Delete</a>
+                            @endif
                         </td>
                         </tr>
                 @endforeach

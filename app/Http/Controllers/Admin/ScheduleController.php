@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class ScheduleController extends Controller
 {
     public function index(){
-        $shedule = Work_Schedule::with('employee','room','shift')->get();
+        $shedule = Work_Schedule::with('employee','room','shift')->orderBy("date","DESC")->get();
         return view('admin.modules.Schedule.index',[
             'schedules' => $shedule
         ]);
@@ -27,6 +27,25 @@ class ScheduleController extends Controller
     }
 
     public function store( Request $request){
+        $request->validate([
+            'emp_id' => 'required',
+            'shift_id' => 'required',
+            'room_id' => 'required',
+            'date' => [
+                'required',
+                'date',
+                'after_or_equal:tomorrow'
+            ],
+        ]);
+
+        $check = Work_Schedule::where('emp_id',$request->emp_id)
+        ->where('date',  $request->date)
+        ->exists();
+
+        if($check){
+            return redirect()->back()->with('error',"Employee already has a work schedule for this date.");
+        }
+
         $scheule = new Work_Schedule();
         $scheule->emp_id = $request->emp_id;
         $scheule->shift_id = $request->shift_id;
@@ -50,6 +69,25 @@ class ScheduleController extends Controller
     }
 
     public function update(Request $request,string $id){
+        $request->validate([
+            'emp_id' => 'required',
+            'shift_id' => 'required',
+            'room_id' => 'required',
+            'date' => [
+                'required',
+                'date',
+                'after_or_equal:tomorrow'
+            ],
+        ]);
+
+        $check = Work_Schedule::where('emp_id',$request->emp_id)
+        ->where('date',  $request->date)
+        ->where('id', '!=', $id)
+        ->exists();
+
+        if($check){
+            return redirect()->back()->with('error',"Employee already has a work schedule for this date.");
+        }
         $sche = Work_Schedule::find($id);
         $sche->room_id = $request->room_id;
         $sche->shift_id = $request ->shift_id;

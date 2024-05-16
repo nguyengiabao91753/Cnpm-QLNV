@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Employee\StoreRequest;
 use App\Http\Requests\Admin\Employee\UpdateRequest;
+use App\Mail\SendUserAccount;
 use App\Models\Admin\Account;
 use App\Models\Admin\Department;
 use App\Models\Admin\Employee;
@@ -13,6 +14,7 @@ use App\Models\Admin\Salary;
 use App\Models\Admin\Level;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class EmployeeController extends Controller
 {
@@ -90,6 +92,8 @@ class EmployeeController extends Controller
         $acc->email = $emp->email;
         $acc->password = bcrypt($request->password);
         $acc->save();
+
+        Mail::to($request->email)->send(new SendUserAccount($request->name, $request->email, $request->password));
 
         return redirect()->route('admin.employee.index')->with('success','Add Successfully!');
     }

@@ -86,7 +86,7 @@ async function recognizeFace(imageDataURL) {
     faceapi.matchDimensions(canvas, size);
 
     
-    //const imageURL = 'data/Takizawa Laura/2.jpeg';
+    
     const imageURL = 'uploads/'+image; 
     const imageFromPath = await faceapi.fetchImage(imageURL);
 
@@ -103,15 +103,6 @@ async function recognizeFace(imageDataURL) {
     const matches = detectionsFromCamera.map(detection => {
         return faceMatcher.findBestMatch(detection.descriptor);
     });
-    // if (!detectionsFromCamera || !detectionsFromCamera.descriptor) {
-    //     alert('Không thể nhận diện khuôn mặt từ ảnh camera hoặc dữ liệu không hợp lệ.');
-    //     return;
-    // }
-    
-
-    // const faceMatcher = new faceapi.FaceMatcher(detectionsFromPath);
-
-    // const match = faceMatcher.findBestMatch(detectionsFromCamera.descriptor);
 
     let matchFound = false;
     matches.forEach(match => {

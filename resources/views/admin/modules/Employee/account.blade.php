@@ -37,11 +37,11 @@
     });
 
     function confirmDelete() {
-        return confirm('Are you sure you want to delete this?');
+        return confirm('Are you sure you want to lock this account?');
     }
 
     function confirmRestore() {
-        return confirm('Are you sure you want to restore?');
+        return confirm('Are you sure you want to unlock this account?');
     }
 </script>
 @endpush
@@ -71,7 +71,7 @@
                     <th>Level</th>
                     <th>Status</th>
                     
-                    <th>Delete</th>
+                    <th>Block</th>
                 </tr>
             </thead>
             <tbody>
@@ -85,7 +85,11 @@
                         <p  class="badge badge-info">Active</p>
                     </td>
                     <td>
-                        <a onclick="return confirmRestore()" href="{{route('admin.account.restore',['id'=> $acc->id])}}" class="btn btn-danger"> <i class="fas fa-lock"></i> Unlock</a>
+                        @if (Auth::guard('admin')->id() != $acc->id)
+                            
+                        <a onclick="return confirmDelete()" href="{{route('admin.account.destroy',['id'=> $acc->id])}}" class="btn btn-danger"> <i class="fas fa-lock"></i> Lock</a>
+                        @endif
+
                     </td>
                 </tr>
 
@@ -99,7 +103,7 @@
                 <th>Level</th>
                 <th>Status</th>
                
-                <th>Delete</th>
+                <th>Blovk</th>
             </tfoot>
         </table>
     </div>
@@ -128,8 +132,7 @@
                     <th>Password</th>
                     <th>Level</th>
                     <th>Status</th>
-                    <th>Update</th>
-                    <th>Delete</th>
+                    <th>Unlock</th>
                 </tr>
             </thead>
             <tbody>
@@ -146,11 +149,11 @@
                     <td>
                         <p class="badge badge-secondary">Locked</p>
                     </td>
-                    <td>
+                    <!-- <td>
                         <a href="{{route('admin.account.edit',['id'=>$acc->id])}}" class="btn btn-success"> <i class="far fa-edit"></i> Update</a>
-                    </td>
+                    </td> -->
                     <td>
-                        <a onclick="return confirmDelete()" href="{{route('admin.account.destroy',['id'=> $acc->id])}}" class="btn btn-danger"> <i class="fas fa-lock"></i> Lock</a>
+                    <a onclick="return confirmRestore()" href="{{route('admin.account.restore',['id'=> $acc->id])}}" class="btn btn-success"> <i class="fas fa-unlock"></i> Unlock</a>
                     </td>
                 </tr>
 
@@ -163,8 +166,8 @@
                 <th>Password</th>
                 <th>Level</th>
                 <th>Status</th>
-                <th>Update</th>
-                <th>Delete</th>
+                
+                <th>Unlock</th>
             </tfoot>
         </table>
     </div>

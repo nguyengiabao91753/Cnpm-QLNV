@@ -103,7 +103,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Supervisor</label>
-                        <select name="supervisor" id="" class="form-control" required>
+                        <select name="supervisor" id="" class="form-control">
                             @foreach ($accs as $acc )
                             @if ($emp->supervisor_id != null)
                                 

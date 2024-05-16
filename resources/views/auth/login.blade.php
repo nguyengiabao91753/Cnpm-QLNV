@@ -15,6 +15,30 @@
   <link rel="stylesheet" href="{{ asset('administrator/dist/css/adminlte.min.css') }}">
 </head>
 <body class="hold-transition login-page" style="height: 85vh;">
+@if($errors->any())
+        <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+          @foreach($errors->all() as $error)
+          <li>{{$error}}</li>
+          @endforeach
+        </div>
+        @endif
+        @if(Session::has('success'))
+        <div class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <h5><i class="icon fas fa-check"></i> Alert!</h5>
+          {{Session::get('success')}}
+        </div>
+        @endif
+
+        @if(Session::has('error'))
+        <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <h5><i class="icon fas fa-check"></i> Alert!</h5>
+          {{Session::get('error')}}
+        </div>
+        @endif
 <div class="login-box">
   <div class="login-logo">
     <a href="">Login Page</a>
@@ -22,9 +46,10 @@
   <!-- /.login-logo -->
   <div class="card" style="padding-top: 0px;">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Admin Login</p>
 
-      <form action="" method="post">
+      <form action="{{route('amlogin')}}" method="post">
+      @csrf
         <div class="input-group mb-3">
           <input type="email" class="form-control" name="email" placeholder="Email">
           <div class="input-group-append">

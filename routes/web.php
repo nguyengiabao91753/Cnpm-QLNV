@@ -30,9 +30,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/',[LoginController::class,'index']);
 
 Route::prefix('admin')->name('admin.')->middleware('check_login')->group(function () {
     Route::prefix('employee')->name('employee.')->controller(EmployeeController::class)->group(function () {
